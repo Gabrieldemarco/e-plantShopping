@@ -30,7 +30,7 @@ export const CartSlice = createSlice({
 });
 
 // Exporta las acciones generadas automáticamente
-//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
+
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
 // Exporta el reductor para su uso en el store
