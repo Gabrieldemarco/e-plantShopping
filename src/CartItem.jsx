@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
@@ -10,6 +11,10 @@ const CartItem = ({ onContinueShopping }) => {
   // Calcular el monto total para todos los productos en el carrito
   const calculateTotalAmount = () =>
     cart.reduce((total, item) => total + item.quantity * item.cost, 0);
+
+  // Calcular la cantidad total de artículos en el carrito
+  const calculateTotalItems = () =>
+    cart.reduce((total, item) => total + item.quantity, 0);
 
   // Continuar comprando (prop recibido desde el componente padre)
   const handleContinueShopping = (e) => {
@@ -40,8 +45,11 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalCost = (item) => item.quantity * item.cost;
 
   return (
+
+
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h4 style={{ color: 'black' }}>Total Items: {calculateTotalItems()}</h4>
       <div>
         {cart.map((item) => (
           <div className="cart-item" key={item.name}>
@@ -74,6 +82,7 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className="total_cart_amount">
         <h3>Total Amount: ${calculateTotalAmount()}</h3>
+        <h4>Total Items in Cart: {calculateTotalItems()}</h4>
       </div>
       <div className="continue_shopping_btn">
         <button
@@ -90,4 +99,3 @@ const CartItem = ({ onContinueShopping }) => {
 };
 
 export default CartItem;
-

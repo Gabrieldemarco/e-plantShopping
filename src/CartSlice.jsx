@@ -29,6 +29,7 @@ export const CartSlice = createSlice({
   },
 });
 
+export const selectTotalItemTypes = (state) => state.cart.items.length;
 // Exporta las acciones generadas automáticamente
 
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
