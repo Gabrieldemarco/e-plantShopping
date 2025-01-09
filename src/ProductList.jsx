@@ -9,6 +9,18 @@ function ProductList() {
   const [showPlants, setShowPlants] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
   
+  // Función para mostrar el carrito
+  const handleShowCart = () => {
+    setShowCart(true);
+  };
+
+  // Función para ocultar el carrito y volver a la lista de productos
+  const handleContinueShopping = () => {
+    setShowCart(false); // Ocultar el carrito y continuar comprando
+  };
+
+
+
   const dispatch = useDispatch(); // Added dispatch for Redux actions
 
   const handleAddToCart = (product) => {
@@ -259,10 +271,7 @@ function ProductList() {
         setShowCart(false);
       };
     
-      const handleContinueShopping = (e) => {
-        e.preventDefault();
-        setShowCart(false);
-      };
+    
     
        return (
         <div>

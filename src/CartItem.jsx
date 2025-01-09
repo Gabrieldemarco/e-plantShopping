@@ -21,7 +21,9 @@ const CartItem = ({ onContinueShopping }) => {
     e.preventDefault();
     onContinueShopping();
   };
-
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
+  };
   // Incrementar la cantidad de un artículo
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
@@ -92,7 +94,12 @@ const CartItem = ({ onContinueShopping }) => {
           Continue Shopping
         </button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button 
+          className="get-started-button1"
+          onClick={(e) => handleCheckoutShopping(e)} // Aquí se asocia el evento
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
